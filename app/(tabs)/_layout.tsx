@@ -1,37 +1,60 @@
+
 import { Tabs } from 'expo-router';
-import { Chrome as Home, Settings } from 'lucide-react-native';
+import { ListChecks, PlusCircle, BarChart3 } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: true,
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: '#8E8E93',
+        tabBarActiveTintColor: '#4F8EF7',
+        tabBarInactiveTintColor: '#B0B3B8',
         tabBarStyle: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#FAFAFA',
           borderTopWidth: 0.5,
-          borderTopColor: '#D1D1D6'
+          borderTopColor: '#E5E7EB',
+          height: 64,
         },
         headerStyle: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#FAFAFA',
         },
         headerTitleStyle: {
-          fontWeight: '600',
+          fontWeight: '700',
+          fontSize: 22,
+          color: '#22223B',
         },
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Blink Expo',
-          tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
+          title: 'Habits',
+          tabBarIcon: ({ color, size }) => <ListChecks size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="add"
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ color, size }) => <Settings size={size} color={color} />,
+          title: 'Add',
+          tabBarIcon: ({ color, size }) => (
+            <PlusCircle size={size + 8} color={color} style={{
+              backgroundColor: '#4F8EF7',
+              borderRadius: 32,
+              padding: 4,
+              marginTop: -16,
+              shadowColor: '#4F8EF7',
+              shadowOpacity: 0.2,
+              shadowRadius: 8,
+              elevation: 4,
+            }} />
+          ),
+          tabBarLabelStyle: { fontWeight: '700' },
+        }}
+      />
+      <Tabs.Screen
+        name="stats"
+        options={{
+          title: 'Stats',
+          tabBarIcon: ({ color, size }) => <BarChart3 size={size} color={color} />,
         }}
       />
     </Tabs>
